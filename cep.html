@@ -10,7 +10,6 @@
 <body>
     <h1>API-CEP</h1>
         <fieldset>
-            <legend>Endereço</legend>
             <label for="cep">CEP:</label>
             <input type="text" id="cep" autocomplete="off">
             <br>
@@ -52,7 +51,7 @@ const cepValido = (cep) => {
 //Com async e await podemos trabalhar com código assíncrono em um estilo mais parecido com o bom e velho código síncrono.
 const pesquisarCep = async () => {
     const cep = document.getElementById("cep").value;
-    const url = `http://viacep.com.br/ws/${cep}/json/`;
+    const url = `https://viacep.com.br/ws/${cep}/json/`;
     if (cepValido(cep)) {
         const dados = await fetch(url);
         const endereco = await dados.json();
@@ -63,4 +62,5 @@ document.getElementById("cep").addEventListener("focusout", pesquisarCep);
 
 
 </script>
+
 </html>
